@@ -125,7 +125,7 @@ export default function DataChart({ parsedData }) {
 
       {/* Chart canvas */}
       <div className={styles.canvas}>
-        <ResponsiveContainer width="100%" height={320}>
+        <ResponsiveContainer width="100%" height={300}>
           {chartType === 'bar' ? (
             <BarChart data={chartData} barGap={4} barCategoryGap="20%">
               <CartesianGrid {...gridProps} vertical={false} />

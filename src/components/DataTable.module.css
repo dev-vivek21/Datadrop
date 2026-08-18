@@ -382,3 +382,10 @@
   font-weight: 700;
   box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
 }
+
+@media (max-width: 768px) {
+  .tableScroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

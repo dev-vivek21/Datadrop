@@ -109,3 +109,11 @@
   gap: 20px;
   padding-bottom: 36px;
 }
+
+@media (max-width: 768px) {
+  .shell {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}

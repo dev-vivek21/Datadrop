@@ -243,3 +243,11 @@
   border-color: #0066CC;
   color: #0066CC;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+  }
+}
