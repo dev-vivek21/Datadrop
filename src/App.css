@@ -1,0 +1,34 @@
+/* App.css — component-scoped overrides */
+
+.ambient-blob {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0; /* Hidden by default in light mode */
+  transition: opacity 0.3s ease;
+  filter: blur(120px);
+}
+
+:global([data-theme="dark"]) .ambient-blob,
+[data-theme="dark"] .ambient-blob {
+  opacity: 0.15;
+  animation: blobDrift 20s infinite alternate ease-in-out;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: var(--blob-blue);
+}
+
+.blob-2 {
+  bottom: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: var(--blob-pink);
+  animation-delay: -10s;
+}

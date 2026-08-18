@@ -1,0 +1,143 @@
+.addCard {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addLabel {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+}
+
+.addRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.addRow select { min-width: 130px; }
+
+/* ─── Active filters ───────────────────────────────── */
+.filtersCard {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.filtersTitle {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Filter chip */
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 12px;
+  background: rgba(0, 102, 204, 0.08);
+  border: 1px solid rgba(0, 102, 204, 0.2);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  animation: fadeIn 0.2s ease both;
+}
+
+.chipCol {
+  font-weight: 600;
+  color: #1D1D1F;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.chipOp {
+  color: #0066CC;
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.chipVal {
+  color: #515154;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.chipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #86868B;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.chipRemove:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #DC2626;
+}
+
+/* ─── Empty state ──────────────────────────────────── */
+.emptyCard {
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: #86868B;
+  font-size: 0.88rem;
+}
+
+.emptyHint {
+  font-size: 0.78rem;
+  color: #86868B;
+  opacity: 0.8;
+}
+
+/* ─── Result bar ───────────────────────────────────── */
+.resultBar {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 14px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.03);
+}
+
+.resultFill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(0, 102, 204, 0.08), rgba(96, 165, 250, 0.1));
+  border-radius: inherit;
+  transition: width 0.5s ease;
+}
+
+.resultText {
+  position: relative;
+  font-size: 0.86rem;
+  color: #1D1D1F;
+  z-index: 1;
+  font-weight: 500;
+}

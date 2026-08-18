@@ -1,0 +1,384 @@
+/* ─── Apple Light-Mode Table Card ──────────────────────────── */
+.wrapper {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeInScale 0.45s ease 0.2s both;
+  position: relative;
+}
+
+/* ─── Toolbar ─────────────────────────────────────── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.tableTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.rowCount {
+  font-size: 0.78rem;
+  color: #86868B;
+  font-family: var(--font-mono);
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ─── Search Input ───
+ * Specification: When textfields are hovered or focused, smoothly transition
+ * background to rgba(0, 0, 0, 0.03) and border to #0066CC
+ */
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 11px;
+  color: #86868B;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.searchInput {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  padding: 8px 32px 8px 32px;
+  color: #1D1D1F;
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  width: 220px;
+  outline: none;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.searchInput::placeholder { color: #86868B; }
+
+/* Exact Hover Transition */
+.searchInput:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+}
+
+/* Focus State */
+.searchInput:focus {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15), 0 2px 10px rgba(0, 102, 204, 0.08);
+}
+
+.searchInput:focus + .searchIcon,
+.searchWrap:focus-within .searchIcon {
+  color: #0066CC;
+}
+
+.searchClear {
+  position: absolute;
+  right: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #86868B;
+  transition: all 0.15s ease;
+}
+
+.searchClear:hover {
+  color: #1D1D1F;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ─── Page Size Select ─── */
+.pageSizeWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.pageSizeLabel {
+  font-size: 0.76rem;
+  color: #86868B;
+}
+
+.pageSizeSelect {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: #1D1D1F;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.pageSizeSelect:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+}
+
+.pageSizeSelect:focus {
+  border-color: #0066CC;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+/* ─── Table Scroll & Layout ───────────────────────── */
+.tableScroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 420px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+}
+
+/* ─── Table Headers ───────────────────────────────── */
+.th {
+  padding: 10px 16px;
+  text-align: left;
+  background: rgba(245, 245, 247, 0.7);
+  color: #515154;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s ease, color 0.15s ease;
+  backdrop-filter: blur(16px);
+}
+
+.th:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #1D1D1F;
+}
+
+.thIndex {
+  width: 48px;
+  text-align: center;
+  cursor: default;
+}
+
+.thSorted {
+  color: #0066CC !important;
+  background: rgba(0, 102, 204, 0.06) !important;
+}
+
+.thContent {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Type tag */
+.typeTag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 1px 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.typeNum {
+  background: rgba(0, 102, 204, 0.08);
+  color: #0066CC;
+  border: 1px solid rgba(0, 102, 204, 0.18);
+}
+
+.typeStr {
+  background: rgba(139, 92, 246, 0.08);
+  color: #7C3AED;
+  border: 1px solid rgba(139, 92, 246, 0.18);
+}
+
+/* Sort arrow */
+.sortArrow {
+  opacity: 0.3;
+  transition: opacity 0.15s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.th:hover .sortArrow { opacity: 0.6; }
+.sortActive { opacity: 1 !important; color: #0066CC; }
+.sortDesc { transform: rotate(180deg); }
+
+/* ─── Body Rows ───────────────────────────────────── */
+.tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  transition: background 0.12s ease;
+}
+
+.tr:hover { background: rgba(0, 0, 0, 0.02); }
+.tr:last-child { border-bottom: none; }
+
+.td {
+  padding: 11px 16px;
+  color: #1D1D1F;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.tdIndex {
+  text-align: center;
+  color: #86868B;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  width: 48px;
+}
+
+.tdNum { text-align: right; }
+
+.numVal {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #1D1D1F;
+  font-weight: 500;
+}
+
+.strVal { font-size: 0.84rem; color: #1D1D1F; }
+
+.nullVal {
+  color: #86868B;
+  font-style: italic;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+/* Empty */
+.empty {
+  text-align: center;
+  padding: 56px 24px;
+  color: #86868B;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── Pagination Bar ──────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.4);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pageInfo {
+  font-size: 0.76rem;
+  color: #86868B;
+  font-family: var(--font-mono);
+}
+
+.pageButtons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #515154;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+}
+
+.pageBtn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.pagePills { display: flex; gap: 3px; }
+
+.pagePill {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #515154;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagePill:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+}
+
+.pagePillActive {
+  background: #0066CC !important;
+  color: #FFFFFF !important;
+  border-color: #0066CC !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.25);
+}

@@ -1,0 +1,313 @@
+/* ─── Drop zone outer wrapper ──────────────────────────── */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 580px;
+}
+
+/* ─── Drop zone card — Precise Apple Light-Mode Spec ─────────── */
+.zone {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+
+  /* Exact User Specification */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+/* Subtle inner light reflection */
+.zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ─── Hover (idle): smoothly transition to rgba(0, 0, 0, 0.03) and border #0066CC ─── */
+.zone:hover:not(.zoneOver):not(.zoneInvalid):not(.zoneProcessing) {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(0, 102, 204, 0.2),
+    0 4px 20px rgba(0, 102, 204, 0.08);
+  transform: translateY(-2px);
+}
+
+.zone:hover .pulseRing { opacity: 1; }
+.zone:hover .cornerTL,
+.zone:hover .cornerTR,
+.zone:hover .cornerBL,
+.zone:hover .cornerBR { opacity: 1; border-color: #0066CC; }
+
+/* ─── Drag-over (valid) ─────────────────────────────────── */
+.zoneOver {
+  background: rgba(0, 102, 204, 0.04) !important;
+  border-color: #0066CC !important;
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.06),
+    0 0 0 3px rgba(0, 102, 204, 0.15),
+    0 8px 30px rgba(0, 102, 204, 0.1) !important;
+  transform: scale(1.012);
+}
+
+/* ─── Drag-over (invalid) ───────────────────────────────── */
+.zoneInvalid {
+  background: rgba(239, 68, 68, 0.04) !important;
+  border-color: #EF4444 !important;
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.04),
+    0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+
+/* ─── Processing ────────────────────────────────────────── */
+.zoneProcessing {
+  cursor: default;
+  pointer-events: none;
+  border-color: rgba(0, 102, 204, 0.3);
+}
+
+/* ─── Success ───────────────────────────────────────────── */
+.zoneSuccess {
+  background: rgba(16, 185, 129, 0.04) !important;
+  border-color: #10B981 !important;
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.04),
+    0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+  pointer-events: none;
+}
+
+/* ─── Corner accents ────────────────────────────────────── */
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  opacity: 0.3;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.cornerTL { top: 12px; left: 12px; border-top: 2px solid rgba(0, 102, 204, 0.5); border-left: 2px solid rgba(0, 102, 204, 0.5); border-radius: 4px 0 0 0; }
+.cornerTR { top: 12px; right: 12px; border-top: 2px solid rgba(0, 102, 204, 0.5); border-right: 2px solid rgba(0, 102, 204, 0.5); border-radius: 0 4px 0 0; }
+.cornerBL { bottom: 12px; left: 12px; border-bottom: 2px solid rgba(0, 102, 204, 0.5); border-left: 2px solid rgba(0, 102, 204, 0.5); border-radius: 0 0 0 4px; }
+.cornerBR { bottom: 12px; right: 12px; border-bottom: 2px solid rgba(0, 102, 204, 0.5); border-right: 2px solid rgba(0, 102, 204, 0.5); border-radius: 0 0 4px 0; }
+
+.zoneOver .corner,
+.zoneSuccess .corner { opacity: 1; }
+.zoneInvalid .corner { opacity: 1; border-color: #EF4444 !important; }
+.zoneSuccess .corner { border-color: #10B981 !important; }
+
+/* ─── Pulse ring ────────────────────────────────────────── */
+.pulseRing {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at center, rgba(0, 102, 204, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: pulseRing 2.5s ease-in-out infinite;
+}
+
+/* ─── Hidden file input ─────────────────────────────────── */
+.hiddenInput { display: none; }
+
+/* ─── Inner content ─────────────────────────────────────── */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 44px 36px;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Icon float */
+.iconWrap { animation: floatUp 4s ease-in-out infinite; }
+
+.mainIcon {
+  width: 78px;
+  height: 78px;
+  filter: drop-shadow(0 4px 12px rgba(0, 102, 204, 0.15));
+}
+
+/* Idle text with near-black #1D1D1F */
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #515154;
+  line-height: 1.6;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: rgba(0, 102, 204, 0.06);
+  color: #0066CC;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 102, 204, 0.15);
+  font-weight: 500;
+}
+
+.browseLink {
+  color: #0066CC;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-style: solid;
+}
+
+/* ─── Drag-active state ─────────────────────────────────── */
+.innerActive { gap: 14px; }
+
+.iconWrapActive {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 102, 204, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 102, 204, 0.25);
+  animation: pulseRing 1.2s ease-in-out infinite;
+  box-shadow: 0 4px 16px rgba(0, 102, 204, 0.1);
+}
+
+.titleActive {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #0066CC;
+}
+
+.subtitleActive {
+  font-size: 0.88rem;
+  color: #515154;
+}
+
+/* ─── Invalid state ─────────────────────────────────────── */
+.innerInvalid { gap: 12px; }
+
+.titleInvalid {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #EF4444;
+}
+
+.subtitleInvalid {
+  font-size: 0.85rem;
+  color: #86868B;
+}
+
+/* ─── Processing state ──────────────────────────────────── */
+.innerProcessing { gap: 14px; }
+
+.spinnerArc {
+  transform-origin: center;
+  animation: spinArc 1.4s linear infinite;
+}
+
+.processingText {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #1D1D1F;
+  letter-spacing: -0.01em;
+}
+
+.dots { display: flex; gap: 6px; }
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0066CC;
+  animation: dotBounce 1.2s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(0, 102, 204, 0.4);
+}
+
+/* ─── Success state ─────────────────────────────────────── */
+.innerSuccess { gap: 12px; }
+
+.successIcon {
+  width: 66px;
+  height: 66px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+  animation: successPop 0.4s ease both;
+}
+
+.successText {
+  font-size: 1.0rem;
+  font-weight: 600;
+  color: #10B981;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Sample data button with hover transition to rgba(0,0,0,0.03) and border #0066CC ─── */
+.sampleBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-pill);
+  color: #515154;
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.sampleBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.12);
+}

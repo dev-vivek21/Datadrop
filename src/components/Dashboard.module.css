@@ -1,0 +1,111 @@
+/* ─── App Shell ─────────────────────────────────────────────── */
+.shell {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+
+/* ─── Main column ───────────────────────────────────────────── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 36px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Upload stage ──────────────────────────────────────────── */
+.centerStage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  animation: fadeIn 0.5s ease both;
+}
+
+.heroText {
+  text-align: center;
+  max-width: 580px;
+}
+
+.heroTitle {
+  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.heroGradient {
+  background: linear-gradient(135deg, #0066CC 0%, #0284C7 50%, #4F46E5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSub {
+  font-size: 1.0rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Supported formats ─────────────────────────────────────── */
+.supportedFormats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.formatTag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.formatTagMuted {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.divider {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ─── Dashboard data view ───────────────────────────────────── */
+.dataView {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 36px;
+}

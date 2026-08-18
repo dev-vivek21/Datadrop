@@ -1,0 +1,239 @@
+/* ─── Controls Card ────────────────────────────────── */
+.controls {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 140px;
+}
+
+.controlHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controlLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+}
+
+.activeModeTag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #0066CC;
+  background: rgba(0, 102, 204, 0.08);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-family: var(--font-mono);
+}
+
+/* Chart type picker */
+.typePicker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.typeBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  color: #515154;
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.typeBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+  transform: translateY(-1px);
+}
+
+.typeBtnActive {
+  background: #0066CC !important;
+  border-color: #0066CC !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0, 102, 204, 0.3) !important;
+}
+
+.typeIcon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Axis row */
+.axisRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.axisRow select {
+  min-width: 170px;
+}
+
+/* ─── Multi-Chart Grid View ───────────────────────── */
+.allChartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 960px) {
+  .allChartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridChartCard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fullWidthScatter {
+  grid-column: 1 / -1;
+}
+
+.gridChartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 12px;
+}
+
+.gridChartTitleArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gridIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.gridChartTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  letter-spacing: -0.01em;
+}
+
+.gridBadge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.gridChartBody {
+  width: 100%;
+  height: 270px;
+}
+
+/* ─── Single Canvas Card ───────────────────────────── */
+.canvas {
+  padding: 22px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.singleChartHeader {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 10px;
+}
+
+.singleChartTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  letter-spacing: -0.015em;
+}
+
+/* ─── Light-Mode Tooltip ──────────────────────────── */
+.tooltip {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  min-width: 130px;
+}
+
+.tooltipLabel {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  margin-bottom: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 6px;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 0;
+}
+
+.tooltipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltipKey {
+  flex: 1;
+  color: #515154;
+  font-size: 0.76rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+}
+
+.tooltipVal {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #1D1D1F;
+  font-weight: 600;
+}

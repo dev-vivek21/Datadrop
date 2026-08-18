@@ -1,0 +1,277 @@
+/* ─── Scope Toggle Card ───────────────────────────── */
+.scopeCard {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scopeLabel {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+}
+
+.scopeButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.scopeBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  color: #515154;
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.scopeBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+}
+
+.scopeBtnActive {
+  background: rgba(0, 102, 204, 0.08) !important;
+  border-color: #0066CC !important;
+  color: #0066CC !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.08);
+}
+
+.scopeCount {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 1px 6px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+
+/* ─── Format Grid ─────────────────────────────────── */
+.formatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.formatCard {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInScale 0.4s ease both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formatCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.06);
+}
+
+.highlightCard {
+  border-color: rgba(220, 38, 38, 0.2) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(254, 242, 242, 0.4) 100%) !important;
+}
+
+.cardHeaderWithBadge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.featuredBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: rgba(220, 38, 38, 0.1);
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.formatIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.formatInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formatName {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  letter-spacing: -0.01em;
+}
+
+.formatDesc {
+  font-size: 0.8rem;
+  color: #515154;
+  line-height: 1.45;
+}
+
+.formatMeta {
+  font-size: 0.72rem;
+  color: #86868B;
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.formatBtn {
+  align-self: flex-start;
+  font-size: 0.82rem !important;
+  padding: 8px 16px !important;
+}
+
+/* ─── Summary Card ────────────────────────────────── */
+.summaryCard {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summaryTitle {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #86868B;
+}
+
+.summaryGrid {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* ─── PDF Preview Modal ────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease both;
+}
+
+.modalContent {
+  width: 100%;
+  max-width: 960px;
+  height: 88vh;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  animation: fadeInScale 0.25s ease both;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: #F5F5F7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.modalTitleArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdfBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  background: #DC2626;
+  color: #FFFFFF;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.modalTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  margin: 0;
+}
+
+.modalActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modalCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  color: #86868B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #0066CC;
+  color: #1D1D1F;
+}
+
+.modalBody {
+  flex: 1;
+  background: #E5E5EA;
+  display: flex;
+  overflow: hidden;
+}
+
+.pdfIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

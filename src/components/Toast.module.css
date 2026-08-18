@@ -1,0 +1,99 @@
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+
+  /* Apple Light-Mode Glass */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  max-width: 380px;
+  min-width: 280px;
+  font-size: 0.86rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.5;
+  pointer-events: all;
+
+  /* Animation start */
+  opacity: 0;
+  transform: translateY(16px) scale(0.97);
+  transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.leaving {
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+/* ─── Type variants ───────────────────────────────── */
+.error {
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(254, 242, 242, 0.9);
+}
+.error .icon { color: #DC2626; }
+.error .message { color: #991B1B; }
+
+.success {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(236, 253, 245, 0.9);
+}
+.success .icon { color: #059669; }
+.success .message { color: #065F46; }
+
+.info {
+  border-color: rgba(0, 102, 204, 0.25);
+  background: rgba(239, 246, 255, 0.9);
+}
+.info .icon { color: #0066CC; }
+.info .message { color: #1E40AF; }
+
+/* ─── Parts ───────────────────────────────────────── */
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+}
+
+.message {
+  flex: 1;
+  font-size: 0.84rem;
+}
+
+.close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  cursor: pointer;
+  color: #86868B;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.close:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: #0066CC;
+  color: #1D1D1F;
+}

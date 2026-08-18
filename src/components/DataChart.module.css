@@ -1,0 +1,165 @@
+/* ─── Apple Light-Mode Chart Card ──────────────────────────── */
+.wrapper {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  animation: fadeInScale 0.45s ease 0.1s both;
+  position: relative;
+}
+
+/* ─── Header ──────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1D1D1F;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 0.78rem;
+  color: #86868B;
+  letter-spacing: 0.01em;
+}
+
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #0066CC;
+  background: rgba(0, 102, 204, 0.06);
+  border: 1px solid rgba(0, 102, 204, 0.15);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* ─── Bar/Line Switcher with #0066CC on hover/active ─── */
+.switcher {
+  display: flex;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 9px;
+  padding: 3px;
+}
+
+.switchBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #515154;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.switchBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+}
+
+.switchActive {
+  background: #FFFFFF !important;
+  color: #0066CC !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+/* ─── Canvas ──────────────────────────────────────── */
+.canvas {
+  padding: 16px 8px 12px 0;
+}
+
+/* ─── Light-Mode Tooltip ──────────────────────────────── */
+.tooltip {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  min-width: 140px;
+}
+
+.tooltipLabel {
+  font-weight: 600;
+  color: #1D1D1F;
+  margin-bottom: 7px;
+  font-size: 0.84rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 6px;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 0;
+}
+
+.tooltipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltipKey {
+  flex: 1;
+  color: #515154;
+  font-size: 0.76rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100px;
+}
+
+.tooltipVal {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #1D1D1F;
+  font-weight: 600;
+}
+
+/* ─── Empty ───────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 24px;
+  color: #86868B;
+  font-size: 0.88rem;
+}

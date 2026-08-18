@@ -1,0 +1,158 @@
+/* Shared panel shell for Apple Light Mode */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 36px;
+  animation: fadeInScale 0.38s ease both;
+}
+
+/* ─── Panel header card (Exact Spec) ───────────────────────────── */
+.panelHeader {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.panelTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1D1D1F;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.panelTitleIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.panelSub {
+  font-size: 0.8rem;
+  color: #86868B;
+  margin-top: 3px;
+  letter-spacing: 0.01em;
+}
+
+.panelHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Glass Card (Exact Light-Mode Spec) ──────────────────── */
+.card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Glass Buttons ───
+ * Specification: When buttons are hovered, smoothly transition background
+ * to rgba(0, 0, 0, 0.03) and border to #0066CC
+ */
+.glassBtn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  color: #1D1D1F;
+  font-size: 0.84rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.glassBtn:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  color: #0066CC;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.12);
+}
+
+.glassBtnPrimary {
+  background: #0066CC;
+  border-color: #0066CC;
+  color: #FFFFFF;
+}
+
+.glassBtnPrimary:hover {
+  background: #0055B3;
+  border-color: #0055B3;
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+}
+
+.glassBtnDanger {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: #DC2626;
+}
+
+.glassBtnDanger:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #DC2626;
+  color: #B91C1C;
+}
+
+/* ─── Glass Select / Textfield Input ───
+ * Specification: When textfields or select are hovered or focused, smoothly
+ * transition background to rgba(0, 0, 0, 0.03) and border to #0066CC
+ */
+.glassSelect,
+.glassInput {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  padding: 8px 12px;
+  color: #1D1D1F;
+  font-size: 0.84rem;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.glassSelect:hover,
+.glassInput:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+}
+
+.glassSelect:focus,
+.glassInput:focus {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: #0066CC;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15), 0 2px 10px rgba(0, 102, 204, 0.08);
+}
+
+.glassSelect option { background: #FFFFFF; color: #1D1D1F; }

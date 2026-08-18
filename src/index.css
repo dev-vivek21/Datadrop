@@ -1,0 +1,211 @@
+/* ─── Apple-Style Light Mode Reset & Base ───────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Apple Light Mode Palette ── */
+  --bg-base:         #FFFFFF;
+  --bg-deep:         #F5F5F7;
+  --bg-glass:        rgba(255, 255, 255, 0.5);
+  --bg-glass-hover:  rgba(0, 0, 0, 0.03);
+  --bg-glass-active: rgba(0, 0, 0, 0.05);
+  --bg-input:        rgba(255, 255, 255, 0.6);
+  --bg-input-hover:  rgba(0, 0, 0, 0.03);
+
+  /* ── Borders ── */
+  --border-glass:    rgba(0, 0, 0, 0.06);
+  --border-subtle:   rgba(0, 0, 0, 0.04);
+  --border-blue:     #0066CC;
+  --border-active:   #0066CC;
+
+  /* ── Accents ── */
+  --accent-blue:     #0066CC;
+  --accent-cyan:     #0284C7;
+  --accent-purple:   #8B5CF6;
+  --accent-green:    #10B981;
+  --accent-amber:    #F59E0B;
+  --accent-red:      #EF4444;
+
+  /* ── Blobs (Pastel Blue & Soft Pink) ── */
+  --blob-blue:       #60A5FA;
+  --blob-pink:       #F472B6;
+
+  /* ── Apple Typography & Text ── */
+  --text-primary:    #1D1D1F;
+  --text-secondary:  #515154;
+  --text-muted:      #86868B;
+  --text-accent:     #0066CC;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', 'Fira Code', Menlo, monospace;
+
+  /* ── Mac Light-Mode Glassmorphism Card Spec ── */
+  --glass-bg:      rgba(255, 255, 255, 0.5);
+  --glass-blur:    blur(20px);
+  --glass-border:  1px solid rgba(0, 0, 0, 0.06);
+  --glass-radius:  16px;
+  --glass-shadow:  0 8px 32px 0 rgba(0, 0, 0, 0.04);
+
+  /* ── Interactive Focus Glow ── */
+  --glow-blue:     0 0 0 3px rgba(0, 102, 204, 0.15), 0 4px 16px rgba(0, 102, 204, 0.08);
+
+  /* ── Misc ── */
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-pill: 100px;
+  --transition:  all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:root[data-theme="dark"] {
+  /* ── Apple Dark Mode Palette ── */
+  --bg-base:         #0D0E11;
+  --bg-deep:         #191B21;
+  --bg-glass:        rgba(255, 255, 255, 0.04);
+  --bg-glass-hover:  rgba(255, 255, 255, 0.08);
+  --bg-glass-active: rgba(255, 255, 255, 0.12);
+  --bg-input:        rgba(255, 255, 255, 0.04);
+  --bg-input-hover:  rgba(255, 255, 255, 0.08);
+
+  /* ── Borders ── */
+  --border-glass:    rgba(255, 255, 255, 0.12);
+  --border-subtle:   rgba(255, 255, 255, 0.08);
+  --border-blue:     #38BDF8;
+  --border-active:   #38BDF8;
+
+  /* ── Accents ── */
+  --accent-blue:     #0A84FF;
+  --accent-cyan:     #32ADE6;
+  --accent-purple:   #BF5AF2;
+  --accent-green:    #30D158;
+  --accent-amber:    #FF9F0A;
+  --accent-red:      #FF453A;
+
+  /* ── Blobs (Deep Space) ── */
+  --blob-blue:       #38BDF8;
+  --blob-pink:       #A855F7;
+
+  /* ── Apple Typography & Text ── */
+  --text-primary:    #FFFFFF;
+  --text-secondary:  #EBEBF5;
+  --text-muted:      rgba(235, 235, 245, 0.6);
+  --text-accent:     #38BDF8;
+
+  /* ── Mac Dark-Mode Glassmorphism Card Spec ── */
+  --glass-bg:      rgba(255, 255, 255, 0.04);
+  --glass-blur:    blur(24px);
+  --glass-border:  1px solid rgba(255, 255, 255, 0.12);
+  --glass-radius:  16px;
+  --glass-shadow:  0 8px 32px 0 rgba(0, 0, 0, 0.3);
+
+  /* ── Interactive Focus Glow ── */
+  --glow-blue:     0 0 0 3px rgba(56, 189, 248, 0.3), 0 4px 16px rgba(56, 189, 248, 0.2);
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, var(--bg-base) 0%, var(--bg-deep) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: rgba(0, 0, 0, 0.12); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0, 102, 204, 0.35); }
+
+/* ─── Keyframes ─────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.97) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-7px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);    opacity: 0.7; }
+  50%  { transform: scale(1.08); opacity: 0.3; }
+  100% { transform: scale(1);    opacity: 0.7; }
+}
+
+@keyframes blobDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(35px, -25px) scale(1.05); }
+  66%  { transform: translate(-25px, 20px) scale(0.96); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0.55); opacity: 0.35; }
+  40%           { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes successPop {
+  0%   { transform: scale(0.7);  opacity: 0; }
+  60%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+@keyframes spinArc {
+  0%   { stroke-dashoffset: 138; transform: rotate(-90deg); }
+  100% { stroke-dashoffset: 0;   transform: rotate(270deg); }
+}
+
+/* ─── Global Dark Mode Input Overrides ───────────────────────────── */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"],
+[data-theme="dark"] input[type="search"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input:not([type]),
+[data-theme="dark"] textarea {
+  background: var(--bg-input);
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+[data-theme="dark"] input[type="text"]:hover,
+[data-theme="dark"] input[type="number"]:hover,
+[data-theme="dark"] input[type="search"]:hover,
+[data-theme="dark"] input[type="password"]:hover,
+[data-theme="dark"] input:not([type]):hover,
+[data-theme="dark"] textarea:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-blue);
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] input[type="number"]:focus,
+[data-theme="dark"] input[type="search"]:focus,
+[data-theme="dark"] input[type="password"]:focus,
+[data-theme="dark"] input:not([type]):focus,
+[data-theme="dark"] textarea:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-blue);
+  box-shadow: var(--glow-blue);
+}
