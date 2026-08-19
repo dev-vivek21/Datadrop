@@ -10,6 +10,7 @@ import ExplorePanel from './panels/ExplorePanel'
 import ChartsPanel from './panels/ChartsPanel'
 import FilterPanel from './panels/FilterPanel'
 import ExportPanel from './panels/ExportPanel'
+import PivotPanel from './panels/PivotPanel'
 import { applyFilters } from '../utils/dataUtils'
 import styles from './Dashboard.module.css'
 
@@ -34,6 +35,7 @@ export default function Dashboard({
     switch (activeTab) {
       case 'explore': return <ExplorePanel parsedData={parsedData} />
       case 'charts':  return <ChartsPanel  parsedData={parsedData} />
+      case 'pivot':   return <PivotPanel   parsedData={parsedData} />
       case 'filter':  return (
         <FilterPanel
           parsedData={parsedData}

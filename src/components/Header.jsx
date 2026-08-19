@@ -14,6 +14,7 @@ const TAB_LABELS = {
   charts:   'Chart Builder',
   filter:   'Filter Rules',
   export:   'Export Data',
+  pivot:    'Pivot & BI',
 }
 
 export default function Header({

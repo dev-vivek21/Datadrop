@@ -1,0 +1,688 @@
+/* ─── PivotPanel.module.css ──────────────────────────────────────── */
+
+/* Sub-tab switcher */
+.subTabs {
+  display: flex;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.subTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.subTab:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-primary);
+}
+
+.subTabActive {
+  background: #ffffff;
+  color: var(--accent-blue);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Recommendation Card ─────────────────────────────────────────── */
+.recCard {
+  padding: 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-left: 3px solid var(--accent-blue);
+}
+
+.recIcon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.recBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.recLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  margin-bottom: 2px;
+}
+
+.recTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.recReason {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.recActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ─── Template Cards Grid ─────────────────────────────────────────── */
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.templateCard {
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 16px !important;
+  border: 2px solid transparent !important;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: visible !important;
+}
+
+.templateCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.templateCardActive {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.12), 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+.templateCardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.templateIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.recBadge {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: rgba(0, 102, 204, 0.1);
+  border: 1px solid rgba(0, 102, 204, 0.2);
+  border-radius: 100px;
+  padding: 3px 8px;
+}
+
+.templateName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.templateDesc {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.templateSelectBtn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.templateSelectBtn:hover {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+}
+
+.templateSelectBtnActive {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+}
+
+/* ─── Active filter chips bar ─────────────────────────────────────── */
+.filtersBar {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filtersBarLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.filterChip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 12px;
+  border-radius: 100px;
+  background: rgba(0, 102, 204, 0.08);
+  border: 1px solid rgba(0, 102, 204, 0.2);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  animation: fadeIn 0.2s ease;
+}
+
+.filterChipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--accent-blue);
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: background 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.filterChipRemove:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #DC2626;
+}
+
+.clearFiltersBtn {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.15s ease;
+}
+
+.clearFiltersBtn:hover {
+  color: #DC2626;
+}
+
+/* ─── KPI Row ─────────────────────────────────────────────────────── */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.kpiCard {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: 16px !important;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpiIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.kpiLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.kpiValue {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.kpiCol {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ─── Chart Cards ─────────────────────────────────────────────────── */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.chartCard {
+  padding: 0;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.chartCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chartCardTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chartTypeSelector {
+  display: flex;
+  gap: 4px;
+}
+
+.chartTypeBtn {
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.chartTypeBtn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.chartTypeBtnActive {
+  background: rgba(0, 102, 204, 0.08);
+  border-color: rgba(0, 102, 204, 0.2);
+  color: var(--accent-blue);
+}
+
+.chartBody {
+  padding: 16px;
+  height: 240px;
+}
+
+/* ─── Pivot Builder ───────────────────────────────────────────────── */
+.pivotLayout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .pivotLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pivotSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fieldWell {
+  padding: 16px;
+}
+
+.fieldWellLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fieldWellDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pivotSelect {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  padding: 9px 12px;
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+}
+
+.pivotSelect:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--accent-blue);
+}
+
+.pivotSelect:focus {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+}
+
+.dateHierarchyRow {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.dateHierBtn {
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.dateHierBtn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.dateHierBtnActive {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+
+/* ─── Pivot Table ─────────────────────────────────────────────────── */
+.pivotTableWrap {
+  overflow: auto;
+  max-height: 520px;
+  border-radius: 12px;
+}
+
+.pivotTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  font-family: var(--font-sans);
+}
+
+.pivotTable th {
+  background: rgba(0, 0, 0, 0.03);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.pivotTable th.colHeader {
+  text-align: center;
+}
+
+.pivotTable td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.pivotTable td.numCell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.pivotTable td.nullCell {
+  text-align: right;
+  color: var(--text-muted);
+}
+
+.pivotTable tr:hover td {
+  background: rgba(0, 102, 204, 0.03);
+}
+
+.pivotTable .totalRow {
+  font-weight: 700;
+  background: rgba(0, 102, 204, 0.04);
+  border-top: 2px solid rgba(0, 102, 204, 0.12);
+}
+
+.pivotTable .totalRow td {
+  border-bottom: none;
+}
+
+.pivotRowKey {
+  font-weight: 600;
+  color: var(--text-primary);
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ─── Empty / Error states ────────────────────────────────────────── */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 2.5rem;
+  opacity: 0.4;
+}
+
+.emptyTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.emptyDesc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+/* ─── Edit mode overlay ───────────────────────────────────────────── */
+.editBanner {
+  padding: 10px 20px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #92400E;
+  animation: fadeIn 0.2s ease;
+}
+
+.editBannerIcon {
+  font-size: 1rem;
+}
+
+.editBannerText {
+  flex: 1;
+}
+
+/* ─── Missing field warning ───────────────────────────────────────── */
+.missingWarn {
+  padding: 10px 16px;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 10px;
+  font-size: 0.78rem;
+  color: #78350F;
+  line-height: 1.5;
+}
+
+.aggRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.aggBtn {
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-sans);
+}
+
+.aggBtn:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.aggBtnActive {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+  font-weight: 600;
+}
+
+.sectionTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* ─── Cross-filter highlight ─────────────────────────────────────── */
+.crossFilterActive {
+  cursor: pointer;
+}
+
+/* ─── Tooltip ─────────────────────────────────────────────────────── */
+.tooltip {
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+}
+
+.tooltipLabel {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.tooltipRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tooltipDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltipKey {
+  color: var(--text-secondary);
+}
+
+.tooltipVal {
+  margin-left: auto;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}

@@ -93,6 +93,21 @@ export function formatNumber(n) {
   return Number(num).toFixed(2)
 }
 
+/** Detect columns that contain date-like string values (>= 60% parseable) */
+export function getDateColumns(headers, rows) {
+  if (!rows.length) return []
+  return headers.filter((h) => {
+    const sample = rows.slice(0, 30).map((r) => r[h]).filter(Boolean)
+    if (!sample.length) return false
+    const parseable = sample.filter((v) => {
+      if (typeof v === 'number') return false
+      const d = new Date(v)
+      return !isNaN(d.getTime())
+    })
+    return parseable.length / sample.length >= 0.6
+  })
+}
+
 /** Apply filter rules to data rows */
 export function applyFilters(rows, filters) {
   if (!filters || !filters.length) return rows
